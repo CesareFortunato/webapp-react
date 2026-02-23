@@ -1,4 +1,4 @@
-
+import CardMovie from "../components/CardMovie"
 
 const HomePage = () => {
     return (
@@ -7,9 +7,14 @@ const HomePage = () => {
             <h2><i>The boolean nerd movie community</i></h2>
 
             <div>
-                <p className="row row-cols-3 mt-4">
-                    Qui ci saranno i film
-                </p>
+                <div className="row row-cols-3 mt-4">
+                    <CardMovie />
+                    <CardMovie />
+                    <CardMovie />
+                    <CardMovie />
+                    <CardMovie />
+                    <CardMovie />
+                </div>
             </div>
         </>
     )
