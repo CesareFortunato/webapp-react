@@ -5,9 +5,6 @@ import MoviePage from "./pages/MoviePage"
 // importiamo layout
 import DefaultLayout from "./layouts/DefaultLayout"
 
-// importiamo components
-import MainHeader from "./components/MainHeader"
-
 // importiamo comp libreria rotte
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
@@ -18,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<DefaultLayout />}>
-          <Route path="/films" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/films/:id" element={<MoviePage />} />
         </Route>
       </Routes>
