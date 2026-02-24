@@ -4,24 +4,38 @@ import CardReview from "../components/CardReview"
 const MoviePage = () => {
   const { id } = useParams()
 
-  // MOCK (poi diventerà dato dal BE)
+  // MOCK film (poi arriverà dal BE usando l'id)
   const movie = {
-    id,
+    id: Number(id),
     title: "Titolo del film",
     director: "Nome regista",
     abstract:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem, ad. Nostrum libero omnis odit ex praesentium voluptate eius velit quisquam."
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem, ad. Nostrum libero omnis odit ex praesentium voluptate eius velit quisquam laboriosam!",
   }
+
+  // MOCK reviews (poi arriveranno dal BE, es: movie.reviews)
+  const reviews = [
+    { id: 1, text: "Bellissimo film!", vote: 5, name: "Marco" },
+    { id: 2, text: "Carino ma un po' lento", vote: 3, name: "Giulia" },
+    { id: 3, text: "Fotografia spettacolare", vote: 4, name: "Luca" },
+  ]
 
   return (
     <>
       <header id="movie" className="border-bottom border-1 mb-3">
         <div className="d-flex mb-3">
-          <img src="https://picsum.photos/300/200" className="card-img-top" alt={movie.title} />
+          <img
+            src="https://picsum.photos/300/200"
+            className="card-img-top"
+            alt={movie.title}
+          />
         </div>
 
         <h1>{movie.title}</h1>
-        <h3 className="text-muted"><i>By {movie.director}</i></h3>
+        <h3 className="text-muted">
+          <i>By {movie.director}</i>
+        </h3>
+
         <p>{movie.abstract}</p>
       </header>
 
@@ -30,14 +44,19 @@ const MoviePage = () => {
           <h4>Our community reviews</h4>
         </header>
 
-        {/* per ora statiche, poi mappiamo un array */}
-        <CardReview />
-        <CardReview />
-        <CardReview />
+        {reviews.length === 0 ? (
+          <p className="text-muted">No reviews yet.</p>
+        ) : (
+          reviews.map((review) => (
+            <CardReview key={review.id} review={review} />
+          ))
+        )}
       </section>
 
       <footer className="border-top border-1 pt-2 mb-3 d-flex justify-content-end">
-        <Link className="btn btn-secondary" to="/">Back to Home</Link>
+        <Link className="btn btn-secondary" to="/">
+          Back to Home
+        </Link>
       </footer>
     </>
   )

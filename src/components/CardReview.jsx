@@ -1,12 +1,16 @@
-const CardReview = () => {
+const CardReview = ({ review }) => {
     return (
         <div className="card mb-4">
             <div className="card-body">
                 <p className="card-text">
-                    testo della review
+                    {review.text}
                 </p>
-                <strong>Vote: 5</strong>
-                <address><i>By autore</i></address>
+
+                <strong>Vote: {review.vote}</strong>
+
+                <address className="mb-0">
+                    <i>By {review.name}</i>
+                </address>
             </div>
         </div>
     )
