@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom"
 
-const CardMovie = ({ movie }) => {
+const CardMovie = ({ movieProp }) => {
   return (
     <div className="card mb-4">
-      <img src="https://picsum.photos/300/200" className="card-img-top" alt={movie.title} />
+      <img src="https://picsum.photos/300/200" className="card-img-top" alt={movieProp.title} />
       <div className="card-body">
-        <h5 className="card-title">{movie.title}</h5>
-        <address className="mb-2"><i>{movie.director}</i></address>
+        <h5 className="card-title">{movieProp.title}</h5>
+        <address className="mb-2"><i>{movieProp.director}</i></address>
 
         <p className="card-text">
-          {movie.abstract}
+          {movieProp.abstract}
         </p>
 
-        <Link to={`/films/${movie.id}`} className="btn btn-primary">
+        <Link to={`/films/${movieProp.id}`} className="btn btn-primary">
           See more
         </Link>
       </div>
