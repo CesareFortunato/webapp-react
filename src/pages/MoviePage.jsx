@@ -1,24 +1,11 @@
 import { Link, useParams } from "react-router-dom"
 import CardReview from "../components/CardReview"
 
+
 const MoviePage = () => {
   const { id } = useParams()
 
-  // MOCK film (poi arriverà dal BE usando l'id)
-  const movie = {
-    id: Number(id),
-    title: "Titolo del film",
-    director: "Nome regista",
-    abstract:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem, ad. Nostrum libero omnis odit ex praesentium voluptate eius velit quisquam laboriosam!",
-  }
 
-  // MOCK reviews (poi arriveranno dal BE, es: movie.reviews)
-  const reviews = [
-    { id: 1, text: "Bellissimo film!", vote: 5, name: "Marco" },
-    { id: 2, text: "Carino ma un po' lento", vote: 3, name: "Giulia" },
-    { id: 3, text: "Fotografia spettacolare", vote: 4, name: "Luca" },
-  ]
 
   return (
     <>
