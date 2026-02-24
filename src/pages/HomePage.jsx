@@ -17,7 +17,7 @@ const HomePage = () => {
     const renderMovies = () => {
         return movies.map((movie) => (
             <div className="col" key={movie.id}>
-                <CardMovie movie={movie} />
+                <CardMovie movieProp={movie} />
             </div>
         ))
     }

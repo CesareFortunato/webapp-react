@@ -1,5 +1,7 @@
 import { Link, useParams } from "react-router-dom"
 import CardReview from "../components/CardReview"
+import axios from "axios"
+import { useState, useEffect } from "react"
 
 const movie = {
     "id": 2,
@@ -85,7 +87,7 @@ const MoviePage = () => {
             </section>
 
             <footer className="border-top border-1 pt-2 mb-3 d-flex justify-content-end">
-                <Link className="btn btn-secondary" to="/">
+                <Link className="btn btn-secondary" to="/films">
                     Back to Home
                 </Link>
             </footer>
