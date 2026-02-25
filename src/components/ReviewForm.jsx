@@ -6,7 +6,7 @@ const endpoint = "http://localhost:3000/api/films/";
 const initialData = {
     name: "",
     text: "",
-    vote: 1,
+    vote: "", // ← ora è stringa vuota
 };
 
 const ReviewForm = ({ movieId, onReviewAdded }) => {
@@ -16,24 +16,22 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+
         setFormData((prev) => ({
             ...prev,
-            [name]: name === "vote" ? Number(value) : value,
+            [name]: value, // ← niente conversione qui
         }));
     };
 
-    // funzione dopo submit
     const afterSubmit = (insertId) => {
         const newReview = {
             id: insertId,
             ...formData,
+            vote: Number(formData.vote), // ← conversione qui per coerenza
             movie_id: Number(movieId),
         };
 
-        // 1) mostra subito la review in pagina
         onReviewAdded?.(newReview);
-
-        // 2) reset del form
         setFormData(initialData);
     };
 
@@ -43,9 +41,11 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
         setLoading(true);
 
         axios
-            .post(`${endpoint}${movieId}/reviews`, formData)
+            .post(`${endpoint}${movieId}/reviews`, {
+                ...formData,
+                vote: Number(formData.vote), // ← conversione solo qui
+            })
             .then((res) => {
-                // il BE ti deve tornare l'id inserito
                 afterSubmit(res.data.id);
             })
             .catch((err) => {
@@ -87,7 +87,7 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">Voto</label>
+                        <label className="form-label">Voto (1-5)</label>
                         <input
                             type="number"
                             className="form-control"
