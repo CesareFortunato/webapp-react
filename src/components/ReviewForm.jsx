@@ -22,7 +22,7 @@ const ReviewForm = ({ movieId, onReviewAdded }) => {
         }));
     };
 
-    // ✅ funzione “dopo submit” (quella che chiedi)
+    // funzione dopo submit
     const afterSubmit = (insertId) => {
         const newReview = {
             id: insertId,
