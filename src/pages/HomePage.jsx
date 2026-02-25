@@ -2,7 +2,7 @@ import CardMovie from "../components/CardMovie"
 import axios from "axios"
 import { useState, useEffect } from "react"
 
-const endpoint = "http://localhost:3000/api/films"
+const endpoint = "http://localhost:3000/api/films";
 
 const HomePage = () => {
     const [movies, setMovies] = useState([])
