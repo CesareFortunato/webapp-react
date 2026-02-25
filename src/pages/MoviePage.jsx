@@ -67,7 +67,7 @@ const MoviePage = () => {
             </section>
 
             <footer className="border-top border-1 pt-2 mb-3 d-flex justify-content-end">
-                <Link className="btn btn-secondary" to="/films">
+                <Link className="btn btn-secondary" to="/">
                     Back to Home
                 </Link>
             </footer>
