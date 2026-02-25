@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const CardMovie = ({ movieProp }) => {
   return (
     <div className="card mb-4">
-      <img src="https://picsum.photos/300/200" className="card-img-top" alt={movieProp.title} />
+      <img src={movieProp.image} className="card-img-top" alt={movieProp.title} />
       <div className="card-body">
         <h5 className="card-title">{movieProp.title}</h5>
         <address className="mb-2"><i>{movieProp.director}</i></address>

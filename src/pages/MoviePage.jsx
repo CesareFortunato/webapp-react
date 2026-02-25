@@ -38,7 +38,7 @@ const MoviePage = () => {
             <header id="movie" className="border-bottom border-1 mb-3">
                 <div className="d-flex mb-3">
                     <img
-                        src="https://picsum.photos/300/200"
+                        src={movie.image}
                         className="card-img-top"
                         alt={movie.title}
                     />
